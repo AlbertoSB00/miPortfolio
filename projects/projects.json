@@ -1,0 +1,32 @@
+[
+  {
+    "name": "PopFlix",
+    "desc": "Aplicación móvil y de escritorio en Java para gestionar cines.",
+    "image": "popflix",
+    "category": "android",
+    "links": {
+      "view": "https://drive.google.com/file/d/1gPdJ1lukq9icOYbOyfwLLW6GcmPJaLLJ/view?usp=sharing",
+      "code": "https://github.com/iesgrancapitan-proyectos/202324DAM-junio-PopFlix/tree/main"
+    }
+  },
+  {
+    "name": "Gestión Andújar Salud (android)",
+    "desc": "Aplicación móvil para gestionar la empresa Andújar Salud.",
+    "image": "andujarsalud",
+    "category": "android",
+    "links": {
+      "view": "https://github.com/AlbertoSB00/gestionCartelAsistencial",
+      "code": "https://github.com/AlbertoSB00/gestionCartelAsistencial"
+    }
+  },
+  {
+    "name": "Gestión Andújar Salud (escritorio)",
+    "desc": "Aplicación de escritorio en Java para gestionar la base de datos de Andújar Salud.",
+    "image": "andujarsalud1",
+    "category": "java",
+    "links": {
+      "view": "https://github.com/AlbertoSB00/gestionDatos",
+      "code": "https://github.com/AlbertoSB00/gestionDatos"
+    }
+  }
+]
