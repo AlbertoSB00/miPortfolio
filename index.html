@@ -24,13 +24,21 @@
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav-container">
-        <a href="#home" class="nav-logo">Alberto Sánchez</a>
+        <a href="#home" class="nav-logo">
+          <img src="./assets/images/logo/logo.png" alt="Logo" class="nav-logo-img">
+          Alberto Sánchez
+        </a>
         <div class="nav-menu" id="nav-menu">
           <a href="#home" class="nav-link">Inicio</a>
           <a href="#about" class="nav-link">Sobre mí</a>
           <a href="#projects" class="nav-link">Proyectos</a>
+          <a href="#experience" class="nav-link">Experiencia</a>
+          <a href="#education" class="nav-link">Formación</a>
           <a href="#contact" class="nav-link">Contacto</a>
         </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+          <i class="fas fa-moon"></i>
+        </button>
         <div class="nav-toggle" id="nav-toggle">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -49,7 +57,7 @@
           <p class="hero-subtitle">Desarrollador Android especializado en crear aplicaciones móviles eficientes y usables</p>
           <div class="hero-buttons">
             <a href="#projects" class="btn btn-primary">Ver proyectos</a>
-            <a href="https://drive.google.com/file/d/1zuTIqY3S6Ri-11Ggn1hNJeIsXRxgtjbl/view?usp=sharing" target="_blank" class="btn btn-secondary">
+            <a href="https://drive.google.com/file/d/1p4i6R7XQJwy3q9VzBt61JjfEiBABZw8C/view?usp=sharing" target="_blank" class="btn btn-secondary">
               <i class="fas fa-download"></i> Currículum
             </a>
           </div>
@@ -75,198 +83,301 @@
     </section>
 
 
-  <!-- about section starts -->
-  <section class="about" id="about">
-      <h2 class="heading"><i class="fas fa-user-alt"></i> Sobre <span>Mí</span></h2>
-      
-      <div class="row">
-
-      <div class="image">
-          <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="">
-      </div>
-      <div class="content">
-          <h3>Soy Alberto Sánchez Barona</h3>
-          <span class="tag">Desarrollador Android</span>
-          
-          <p>Enfocado en crear aplicaciones usables y eficientes. Poseo un sólido conocimiento de Java y aprendiendo actualmente Kotlin, disfruto enfrentando desafíos que me permitan mejorar como profesional. Mi experiencia incluye el desarrollo de aplicaciones con interfaces de usuario optimizadas y la implementación de funcionalidades que brindan una experiencia de usuario fluida. Estoy comprometido con el desarrollo continuo y busco colaborar en proyectos donde pueda contribuir al éxito del equipo y crecer profesionalmente en el ámbito de la tecnología móvil.</p>
-          
-          <div class="box-container">
-              <div class="box">
-                <p><span> email : </span> info@appberto.es</p>
-              </div>
-          </div>
-          
-          <div class="resumebtn">
-              <a href="https://drive.google.com/file/d/1zuTIqY3S6Ri-11Ggn1hNJeIsXRxgtjbl/view?usp=sharing" target="_blank" class="btn"><span>Currículum</span>
-                  <i class="fas fa-chevron-right"></i>
-              </a>
-          </div>
-
-      </div>
-      </div>
-  </section>
-  <!-- about section ends -->
-
-  <!-- skills section starts -->
-  <section class="skills" id="skills">
-
-      <h2 class="heading"><i class="fas fa-laptop-code"></i> Lenguajes & <span>Tecnologías</span></h2>
-
+    <!-- About Section -->
+    <section class="about" id="about">
       <div class="container">
-            <div class="row" id="skillsContainer">
-        </div>
-    </div>
-  </section>
-  <!-- skills section ends -->
-
-
-  <!-- education section starts -->
-  <section class="education" id="education">
-
-    <h1 class="heading"><i class="fas fa-graduation-cap"></i> Mi <span>Educación</span></h1>
-
-      <div class="box-container">
-
-      <div class="box">
-        <div class="image">
-        <img draggable="false" src="./assets/images/educat/school.jpg" alt="">
-        </div>
-        <div class="content">
-        <h3>Ciclo Formativo Grado Medio Sistemas Microinformáticos y Redes</h3>
-        <p>IES Fidiana - Córdoba</p>
-        <h4>2018-2020</h4>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="image">
-        <img draggable="false" src="./assets/images/educat/college.jpg" alt="">
-        </div>
-        <div class="content">
-        <h3>Ciclo Formativo Grado Superior Desarrollo de Aplicaciones Multiplataforma</h3>
-        <p>IES Gran Capitán - Córdoba</p>
-        <h4>2022-2024</h4>
-        </div>
-    </div>
-
-  </div>
-  </section>
-  <!-- education section ends -->
-
-
-  <!-- work project section starts -->
-    <section class="work" id="work">
-
-      <h2 class="heading"><i class="fas fa-laptop-code"></i> Mis <span>proyectos</span></h2>
-
-      <div class="box-container"></div>
-
-    </section>
-  <!-- work project section ends -->
-
-  <!-- experience section starts -->
-  <section class="experience" id="experience">
-
-    <h2 class="heading"><i class="fas fa-briefcase"></i> Experiencia Laboral </h2>
-
-    <div class="timeline">
-
-      <div class="container right">
-        <div class="content">
-          <div class="tag">
-            <h2>All Pentesting</h2>
-          </div>
-          <div class="desc">
-              <h3>Programador de software - Backend</h3>
-              <p>Marzo 2020 - Junio 2020</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="container left">
-        <div class="content">
-          <div class="tag">
-            <h2>Andújar Salud</h2>
-          </div>
-          <div class="desc">
-              <h3>Porgramador en Android - Full stack</h3>
-              <p>Marzo 2024 - Junio 2024</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  </section>
-  <!-- experience section ends -->
-
-  <!-- footer section starts -->
-  <section class="footer">
-
-    <div class="box-container">
-
-        <div class="box">
-            <h3>Enlaces rápidos</h3>
-            <a href="#home"><i class="fas fa-chevron-circle-right"></i> Inicio</a>
-            <a href="#about"><i class="fas fa-chevron-circle-right"></i> Sobre mí</a>
-            <a href="#skills"><i class="fas fa-chevron-circle-right"></i> Habilidades</a>
-            <a href="#education"><i class="fas fa-chevron-circle-right"></i> Educación</a>
-            <a href="#work"><i class="fas fa-chevron-circle-right"></i> Experiencia Laboral</a>
-            <a href="#experience"><i class="fas fa-chevron-circle-right"></i> Contacta</a>
-        </div>
-
-        <div class="box">
-            <h3>Contacto</h3>
-            <p> <i class="fas fa-envelope"></i>info@appberto.es</p>
-            <p> <i class="fas fa-map-marked-alt"></i>Córdoba - España</p>
-            <div class="share">
-
-                <a href="https://www.linkedin.com/in/appberto/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-                <a href="https://github.com/AlbertoSB00" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-                <a href="mailto:info@appberto.es" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-                <a href="https://x.com/SirTychus" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
+        <div class="about-content">
+          <div class="about-text">
+            <h2 class="section-title">Sobre mí</h2>
+            <p class="about-description">
+              Soy Alberto Sánchez Barona, desarrollador Android enfocado en crear aplicaciones usables y eficientes.
+              Poseo un sólido conocimiento de Java y actualmente aprendiendo Kotlin. Disfruto enfrentando desafíos
+              que me permitan mejorar como profesional.
+            </p>
+            <p class="about-description">
+              Mi experiencia incluye el desarrollo de aplicaciones con interfaces de usuario optimizadas y la
+              implementación de funcionalidades que brindan una experiencia de usuario fluida. Estoy comprometido
+              con el desarrollo continuo y busco colaborar en proyectos donde pueda contribuir al éxito del equipo.
+            </p>
+            <div class="about-info">
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>info@appberto.es</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Córdoba, España</span>
+              </div>
             </div>
+          </div>
+          <div class="about-skills">
+            <h3>Tecnologías principales</h3>
+            <div class="skills-grid" id="skillsContainer">
+              <!-- Skills will be loaded dynamically -->
+              <div class="skill-item">
+                <img src="https://img.icons8.com/fluency/48/000000/android-os.png" alt="Android" />
+                <span>Android</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png" alt="Java" />
+                <span>Java</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/color/48/000000/kotlin.png" alt="Kotlin" />
+                <span>Kotlin</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="HTML5" />
+                <span>HTML5</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS3" />
+                <span>CSS3</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL" />
+                <span>MySQL</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/color/48/000000/git.png" alt="Git" />
+                <span>Git VCS</span>
+              </div>
+              <div class="skill-item">
+                <img src="https://img.icons8.com/glyph-neue/48/ffffff/github.png" alt="GitHub" />
+                <span>GitHub</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <h1 class="credit">Diseñado por <a href="https://www.linkedin.com/in/appberto"> Alberto Sánchez</a></h1>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title">Proyectos destacados</h2>
+        <div class="projects-grid" id="projectsContainer">
+          <!-- Projects will be loaded dynamically -->
+          <div class="project-card">
+            <img src="./assets/images/projects/popflix.png" alt="PopFlix" class="project-image" />
+            <div class="project-content">
+              <h3 class="project-title">PopFlix</h3>
+              <p class="project-description">Aplicación móvil y de escritorio en Java para gestionar cines.</p>
+              <div class="project-links">
+                <a href="https://drive.google.com/file/d/1gPdJ1lukq9icOYbOyfwLLW6GcmPJaLLJ/view?usp=sharing" target="_blank" class="project-link">
+                  <i class="fas fa-eye"></i> Ver proyecto
+                </a>
+                <a href="https://github.com/iesgrancapitan-proyectos/202324DAM-junio-PopFlix/tree/main" target="_blank" class="project-link secondary">
+                  <i class="fas fa-code"></i> Código
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="./assets/images/projects/andujarsalud.png" alt="Gestión Andújar Salud" class="project-image" />
+            <div class="project-content">
+              <h3 class="project-title">Gestión Andújar Salud (Android)</h3>
+              <p class="project-description">Aplicación móvil para gestionar la empresa Andújar Salud.</p>
+              <div class="project-links">
+                <a href="https://github.com/AlbertoSB00/gestionCartelAsistencial" target="_blank" class="project-link">
+                  <i class="fas fa-eye"></i> Ver proyecto
+                </a>
+                <a href="https://github.com/AlbertoSB00/gestionCartelAsistencial" target="_blank" class="project-link secondary">
+                  <i class="fas fa-code"></i> Código
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="./assets/images/projects/andujarsalud1.png" alt="Gestión Andújar Salud Escritorio" class="project-image" />
+            <div class="project-content">
+              <h3 class="project-title">Gestión Andújar Salud (Escritorio)</h3>
+              <p class="project-description">Aplicación de escritorio en Java para gestionar la base de datos de Andújar Salud.</p>
+              <div class="project-links">
+                <a href="https://github.com/AlbertoSB00/gestionDatos" target="_blank" class="project-link">
+                  <i class="fas fa-eye"></i> Ver proyecto
+                </a>
+                <a href="https://github.com/AlbertoSB00/gestionDatos" target="_blank" class="project-link secondary">
+                  <i class="fas fa-code"></i> Código
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  </section>
-  <!-- footer section ends -->
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <h2 class="section-title">Experiencia Laboral</h2>
+        <div class="experience-grid">
+          <div class="experience-card">
+            <div class="experience-header">
+              <div class="experience-icon">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="experience-period">2020</div>
+            </div>
+            <div class="experience-content">
+              <h3>Programador Backend</h3>
+              <h4>All Pentesting</h4>
+              <p class="experience-duration">Marzo 2020 - Junio 2020</p>
+              <p class="experience-description">
+                Desarrollo de soluciones backend para sistemas de seguridad informática.
+                Programación de herramientas y scripts para análisis de vulnerabilidades y pentesting.
+              </p>
+              <div class="experience-skills">
+                <span class="skill-tag">Backend</span>
+                <span class="skill-tag">Seguridad</span>
+                <span class="skill-tag">Pentesting</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-header">
+              <div class="experience-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="experience-period">2024</div>
+            </div>
+            <div class="experience-content">
+              <h3>Desarrollador Android Full Stack</h3>
+              <h4>Andújar Salud</h4>
+              <p class="experience-duration">Marzo 2024 - Junio 2024</p>
+              <p class="experience-description">
+                Desarrollo de aplicaciones móviles Android para la gestión integral de servicios de salud.
+                Implementación de interfaces de usuario optimizadas y funcionalidades que mejoran la experiencia del usuario.
+              </p>
+              <div class="experience-skills">
+                <span class="skill-tag">Android</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Kotlin</span>
+                <span class="skill-tag">Full Stack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+      <div class="container">
+        <h2 class="section-title">Formación Académica</h2>
+        <div class="education-grid">
+          <div class="education-card">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="education-period">2018-2020</div>
+            </div>
+            <div class="education-content">
+              <h3>Ciclo Formativo de Grado Medio</h3>
+              <h4>Sistemas Microinformáticos y Redes (SMR)</h4>
+              <p class="education-institution">
+                <i class="fas fa-university"></i>
+                IES Fidiana - Córdoba
+              </p>
+              <p class="education-description">
+                Formación en administración de sistemas informáticos, redes, y soporte técnico.
+                Base sólida en hardware, software e infraestructura tecnológica. Desarrollo de
+                habilidades fundamentales en el mantenimiento y configuración de equipos informáticos.
+              </p>
+              <div class="education-skills">
+                <span class="skill-tag">Redes</span>
+                <span class="skill-tag">Hardware</span>
+                <span class="skill-tag">Sistemas</span>
+                <span class="skill-tag">Soporte Técnico</span>
+                <span class="skill-tag">Windows</span>
+                <span class="skill-tag">Linux</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="education-card">
+            <div class="education-header">
+              <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="education-period">2022-2024</div>
+            </div>
+            <div class="education-content">
+              <h3>Ciclo Formativo de Grado Superior</h3>
+              <h4>Desarrollo de Aplicaciones Multiplataforma (DAM)</h4>
+              <p class="education-institution">
+                <i class="fas fa-university"></i>
+                IES Gran Capitán - Córdoba
+              </p>
+              <p class="education-description">
+                Formación especializada en desarrollo de aplicaciones para múltiples plataformas,
+                con énfasis en programación orientada a objetos, bases de datos, y desarrollo móvil.
+                Adquisición de competencias técnicas avanzadas en el ámbito del desarrollo de software.
+              </p>
+              <div class="education-skills">
+                <span class="skill-tag">Programación</span>
+                <span class="skill-tag">Bases de Datos</span>
+                <span class="skill-tag">Desarrollo Móvil</span>
+                <span class="skill-tag">Interfaces</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Android</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@appberto.es">info@appberto.es</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Córdoba, España</span>
+              </div>
+            </div>
+            <div class="contact-social">
+              <a href="https://www.linkedin.com/in/appberto/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/AlbertoSB00" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://x.com/SirTychus" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Alberto Sánchez. Desarrollador Android.</p>
+      </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
 
-  <!-- scroll top btn -->
-  <a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-  <!-- scroll back to top -->
-
-
-  <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-  <!-- jquery cdn -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <!-- typed.js cdn -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <!-- particle.js links -->
-  <script src="./assets/js/particles.min.js"></script>
-  <script src="./assets/js/app.js"></script>
-
-  <!-- vanilla tilt.js links -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <!-- scroll reveal anim -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-
-  <script
-        type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-      ></script>
-
-  <!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-  <script src="./assets/js/script.js"></script>
-
+    <!-- Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>

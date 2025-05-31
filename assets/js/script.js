@@ -1,226 +1,280 @@
-$(document).ready(function () {
+// ===== MODERN PORTFOLIO JAVASCRIPT =====
 
-    $('#menu').click(function () {
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all functionality
+    initNavigation();
+    initScrollEffects();
+    initThemeToggle();
+
+    // Add a small delay to ensure DOM is fully loaded
+    setTimeout(() => {
+        loadSkills();
+        loadProjects();
+    }, 100);
+
+    initScrollReveal();
+});
+
+// ===== NAVIGATION =====
+function initNavigation() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Mobile menu toggle
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        });
     });
 
-    $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
+    // Smooth scrolling for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
 
-        if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
-        } else {
-            document.querySelector('#scroll-top').classList.remove('active');
+// ===== THEME TOGGLE =====
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    // Update icon based on current theme
+    updateThemeIcon(currentTheme, themeIcon);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme, themeIcon);
+    });
+}
+
+function updateThemeIcon(theme, iconElement) {
+    if (theme === 'dark') {
+        iconElement.className = 'fas fa-sun';
+    } else {
+        iconElement.className = 'fas fa-moon';
+    }
+}
+
+// ===== SCROLL EFFECTS =====
+function initScrollEffects() {
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        // Show/hide scroll to top button
+        if (scrollTopBtn) {
+            if (scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
         }
 
-        // scroll spy
-        $('section').each(function () {
-            let height = $(this).height();
-            let offset = $(this).offset().top - 200;
-            let top = $(window).scrollTop();
-            let id = $(this).attr('id');
+        // Add shadow to navigation on scroll
+        if (scrollY > 50) {
+            nav.style.boxShadow = 'var(--shadow-lg)';
+        } else {
+            nav.style.boxShadow = 'none';
+        }
 
-            if (top > offset && top < offset + height) {
-                $('.navbar ul li a').removeClass('active');
-                $('.navbar').find(`[href="#${id}"]`).addClass('active');
+        // Active navigation link based on scroll position
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     });
 
-    // smooth scrolling
-    $('a[href*="#"]').on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
-        }, 500, 'linear')
-    });
-
-    // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("a2vexqxSC4hDkj1Sa");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
+    // Scroll to top functionality
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        event.preventDefault();
-    });
-    // <!-- emailjs to mail contact form data -->
-
-});
-
-
-// <!-- typed js effect starts -->
-var typed = new Typed(".typing-text", {
-    strings: ["diseño web", "desarrollo en android"],
-    loop: true,
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 500,
-});
-// <!-- typed js effect ends -->
-
-async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
-    const data = await response.json();
-    return data;
+        });
+    }
 }
 
-function showSkills(skills) {
-    let skillsContainer = document.getElementById("skillsContainer");
-    let skillHTML = "";
-    skills.forEach(skill => {
-        skillHTML += `
-        <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`
-    });
-    skillsContainer.innerHTML = skillHTML;
+// ===== LOAD SKILLS =====
+async function loadSkills() {
+    try {
+        const response = await fetch('skills.json');
+        const skills = await response.json();
+        displaySkills(skills);
+    } catch (error) {
+        console.error('Error loading skills:', error);
+    }
 }
 
-function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
-    let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "").forEach(project => {
-        projectHTML += `
-        <div class="box tilt">
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
+function displaySkills(skills) {
+    const skillsContainer = document.getElementById('skillsContainer');
+    console.log('Skills container:', skillsContainer);
+    console.log('Skills data:', skills);
+
+    if (!skillsContainer) {
+        console.error('Skills container not found!');
+        return;
+    }
+
+    const skillsHTML = skills.map(skill => `
+        <div class="skill-item">
+            <img src="${skill.icon}" alt="${skill.name}" />
+            <span>${skill.name}</span>
         </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
+    `).join('');
+
+    skillsContainer.innerHTML = skillsHTML;
+    console.log('Skills loaded successfully');
+}
+
+// ===== LOAD PROJECTS =====
+async function loadProjects() {
+    try {
+        const response = await fetch('./projects/projects.json');
+        const projects = await response.json();
+        displayProjects(projects);
+    } catch (error) {
+        console.error('Error loading projects:', error);
+    }
+}
+
+function displayProjects(projects) {
+    const projectsContainer = document.getElementById('projectsContainer');
+    console.log('Projects container:', projectsContainer);
+    console.log('Projects data:', projects);
+
+    if (!projectsContainer) {
+        console.error('Projects container not found!');
+        return;
+    }
+
+    const projectsHTML = projects.map(project => `
+        <div class="project-card">
+            <img src="./assets/images/projects/${project.image}.png" alt="${project.name}" class="project-image" />
+            <div class="project-content">
+                <h3 class="project-title">${project.name}</h3>
+                <p class="project-description">${project.desc}</p>
+                <div class="project-links">
+                    <a href="${project.links.view}" target="_blank" class="project-link">
+                        <i class="fas fa-eye"></i> Ver proyecto
+                    </a>
+                    <a href="${project.links.code}" target="_blank" class="project-link secondary">
+                        <i class="fas fa-code"></i> Código
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>`
-    });
-    projectsContainer.innerHTML = projectHTML;
+    `).join('');
 
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
-
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
-
+    projectsContainer.innerHTML = projectsHTML;
+    console.log('Projects loaded successfully');
 }
 
-fetchData().then(data => {
-    showSkills(data);
-});
+// ===== SCROLL REVEAL ANIMATIONS =====
+function initScrollReveal() {
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1000,
+            delay: 200,
+            reset: false
+        });
 
-fetchData("projects").then(data => {
-    showProjects(data);
-});
+        // Hero section
+        sr.reveal('.hero-content', {
+            origin: 'left',
+            distance: '50px',
+            duration: 800,
+            delay: 100
+        });
+        sr.reveal('.hero-image', {
+            origin: 'right',
+            distance: '50px',
+            duration: 800,
+            delay: 300
+        });
 
-// <!-- tilt js effect starts -->
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-});
-// <!-- tilt js effect ends -->
+        // About section
+        sr.reveal('.about-text', { origin: 'left' });
+        sr.reveal('.about-skills', { origin: 'right', delay: 400 });
 
+        // Projects
+        sr.reveal('.project-card', { interval: 200 });
 
-// pre loader start
-// function loader() {
-//     document.querySelector('.loader-container').classList.add('fade-out');
-// }
-// function fadeOut() {
-//     setInterval(loader, 500);
-// }
-// window.onload = fadeOut;
-// pre loader end
+        // Experience
+        sr.reveal('.experience-card', { interval: 300 });
 
-// disable developer mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
+        // Education
+        sr.reveal('.education-card', { interval: 400 });
+
+        // Contact
+        sr.reveal('.contact-content', { delay: 200 });
     }
 }
 
-
-/* ===== SCROLL REVEAL ANIMATION ===== */
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: true
+// ===== PAGE TITLE CHANGE ON VISIBILITY =====
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+        document.title = 'Alberto Sánchez | Desarrollador Android';
+    } else {
+        document.title = '¡Vuelve pronto! - Alberto Sánchez';
+    }
 });
 
-/* SCROLL HOME */
-srtop.reveal('.home .content h3', { delay: 200 });
-srtop.reveal('.home .content p', { delay: 200 });
-srtop.reveal('.home .content .btn', { delay: 200 });
-
-srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin', { interval: 600 });
-srtop.reveal('.home .github', { interval: 800 });
-srtop.reveal('.home .twitter', { interval: 1000 });
-srtop.reveal('.home .telegram', { interval: 600 });
-srtop.reveal('.home .instagram', { interval: 600 });
-srtop.reveal('.home .dev', { interval: 600 });
-
-/* SCROLL ABOUT */
-srtop.reveal('.about .content h3', { delay: 200 });
-srtop.reveal('.about .content .tag', { delay: 200 });
-srtop.reveal('.about .content p', { delay: 200 });
-srtop.reveal('.about .content .box-container', { delay: 200 });
-srtop.reveal('.about .content .resumebtn', { delay: 200 });
-
-
-/* SCROLL SKILLS */
-srtop.reveal('.skills .container', { interval: 200 });
-srtop.reveal('.skills .container .bar', { delay: 400 });
-
-/* SCROLL EDUCATION */
-srtop.reveal('.education .box', { interval: 200 });
-
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
-
-/* SCROLL EXPERIENCE */
-srtop.reveal('.experience .timeline', { delay: 400 });
-srtop.reveal('.experience .timeline .container', { interval: 400 });
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
+// ===== UTILITY FUNCTIONS =====
+// Debounce function for performance optimization
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
