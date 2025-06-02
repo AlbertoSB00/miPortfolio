@@ -178,7 +178,7 @@ let projectsData = [
         "image": "webandujar",
         "category": "web",
         "links": {
-            "view": "https://github.com/AlbertoSB00/webAndujarSalud",
+            "view": "https://andujarsalud.appberto.es",
             "code": "https://github.com/AlbertoSB00/webAndujarSalud"
         }
     },
@@ -188,7 +188,7 @@ let projectsData = [
         "image": "miportfolio",
         "category": "web",
         "links": {
-            "view": "https://github.com/AlbertoSB00/miPortfolio",
+            "view": "https://appberto.es",
             "code": "https://github.com/AlbertoSB00/miPortfolio"
         }
     },
@@ -198,7 +198,7 @@ let projectsData = [
         "image": "estancoclicker",
         "category": "game",
         "links": {
-            "view": "https://github.com/AlbertoSB00/estancoClicker",
+            "view": "https://clicker.appberto.es",
             "code": "https://github.com/AlbertoSB00/estancoClicker"
         }
     }
