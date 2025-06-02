@@ -443,8 +443,10 @@ body {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .project-card {
@@ -463,7 +465,61 @@ body {
 .project-image {
   width: 100%;
   height: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--background-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* Fallback para imágenes que no cargan */
+.project-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.project-image::after {
+  content: '🖼️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: var(--text-secondary);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-image img[src=""],
+.project-image img:not([src]) {
+  opacity: 0;
+}
+
+.project-image:has(img[src=""]) ::after,
+.project-image:has(img:not([src])) ::after {
+  opacity: 1;
 }
 
 .project-content {
@@ -513,6 +569,8 @@ body {
   background-color: var(--primary-color);
   color: white;
 }
+
+
 
 /* ===== EXPERIENCE SECTION ===== */
 .experience {
@@ -928,6 +986,7 @@ body {
   /* Projects */
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 
   /* Experience */

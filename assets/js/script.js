@@ -171,11 +171,42 @@ function displaySkills(skills) {
 }
 
 // ===== LOAD PROJECTS =====
+let projectsData = [
+    {
+        "name": "Web para Andújar Salud",
+        "desc": "Sitio web corporativo desarrollado para la empresa Andújar Salud con diseño moderno y responsive.",
+        "image": "webandujar",
+        "category": "web",
+        "links": {
+            "view": "https://github.com/AlbertoSB00/webAndujarSalud",
+            "code": "https://github.com/AlbertoSB00/webAndujarSalud"
+        }
+    },
+    {
+        "name": "Mi Portfolio",
+        "desc": "Portfolio personal desarrollado con HTML, CSS y JavaScript para mostrar mis proyectos y habilidades.",
+        "image": "miportfolio",
+        "category": "web",
+        "links": {
+            "view": "https://github.com/AlbertoSB00/miPortfolio",
+            "code": "https://github.com/AlbertoSB00/miPortfolio"
+        }
+    },
+    {
+        "name": "Estanco Clicker",
+        "desc": "Juego clicker interactivo desarrollado con JavaScript, HTML y CSS con mecánicas de progresión.",
+        "image": "estancoclicker",
+        "category": "game",
+        "links": {
+            "view": "https://github.com/AlbertoSB00/estancoClicker",
+            "code": "https://github.com/AlbertoSB00/estancoClicker"
+        }
+    }
+];
+
 async function loadProjects() {
     try {
-        const response = await fetch('./projects/projects.json');
-        const projects = await response.json();
-        displayProjects(projects);
+        displayProjects(projectsData);
     } catch (error) {
         console.error('Error loading projects:', error);
     }
@@ -183,8 +214,6 @@ async function loadProjects() {
 
 function displayProjects(projects) {
     const projectsContainer = document.getElementById('projectsContainer');
-    console.log('Projects container:', projectsContainer);
-    console.log('Projects data:', projects);
 
     if (!projectsContainer) {
         console.error('Projects container not found!');
@@ -193,7 +222,12 @@ function displayProjects(projects) {
 
     const projectsHTML = projects.map(project => `
         <div class="project-card">
-            <img src="./assets/images/projects/${project.image}.png" alt="${project.name}" class="project-image" />
+            <div class="project-image">
+                <img src="./assets/images/projects/${project.image}.png"
+                     alt="${project.name}"
+                     loading="lazy"
+                     onerror="this.style.display='none';" />
+            </div>
             <div class="project-content">
                 <h3 class="project-title">${project.name}</h3>
                 <p class="project-description">${project.desc}</p>
@@ -210,8 +244,9 @@ function displayProjects(projects) {
     `).join('');
 
     projectsContainer.innerHTML = projectsHTML;
-    console.log('Projects loaded successfully');
 }
+
+
 
 // ===== SCROLL REVEAL ANIMATIONS =====
 function initScrollReveal() {
