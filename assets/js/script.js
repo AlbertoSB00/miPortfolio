@@ -177,29 +177,32 @@ let projectsData = [
         "desc": "Sitio web corporativo desarrollado para la empresa Andújar Salud con diseño moderno y responsive.",
         "image": "webandujar",
         "category": "web",
+        "featured": true,
         "links": {
-            "view": "https://andujarsalud.appberto.es",
+            "view": "https://andujarsalud.appberto.es/",
             "code": "https://github.com/AlbertoSB00/webAndujarSalud"
         }
     },
     {
-        "name": "Mi Portfolio",
-        "desc": "Portfolio personal desarrollado con HTML, CSS y JavaScript para mostrar mis proyectos y habilidades.",
-        "image": "miportfolio",
-        "category": "web",
+        "name": "PopFlix",
+        "desc": "Aplicación móvil en Java para gestionar cines con interfaz moderna.",
+        "image": "popflix",
+        "category": "android",
+        "featured": true,
         "links": {
-            "view": "https://appberto.es",
-            "code": "https://github.com/AlbertoSB00/miPortfolio"
+            "view": "https://drive.google.com/file/d/1gPdJ1lukq9icOYbOyfwLLW6GcmPJaLLJ/view?usp=sharing",
+            "code": "https://github.com/AlbertoSB00/gestionCine"
         }
     },
     {
-        "name": "Estanco Clicker",
-        "desc": "Juego clicker interactivo desarrollado con JavaScript, HTML y CSS con mecánicas de progresión.",
-        "image": "estancoclicker",
+        "name": "Fumadero Tycoon (android)",
+        "desc": "Port del juego clicker web a Android usando Kotlin.",
+        "image": "estancoclickerandroid",
         "category": "game",
+        "featured": true,
         "links": {
-            "view": "https://clicker.appberto.es",
-            "code": "https://github.com/AlbertoSB00/estancoClicker"
+            "view": "https://appberto.itch.io/fumadero-tycoon",
+            "code": "https://github.com/AlbertoSB00/estancoClickerandroid"
         }
     }
 ];
@@ -229,8 +232,10 @@ function displayProjects(projects) {
                      onerror="this.style.display='none';" />
             </div>
             <div class="project-content">
-                <h3 class="project-title">${project.name}</h3>
-                <p class="project-description">${project.desc}</p>
+                <div class="project-info">
+                    <h3 class="project-title">${project.name}</h3>
+                    <p class="project-description">${project.desc}</p>
+                </div>
                 <div class="project-links">
                     <a href="${project.links.view}" target="_blank" class="project-link">
                         <i class="fas fa-eye"></i> Ver proyecto

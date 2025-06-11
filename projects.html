@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Todos los proyectos de Alberto Sánchez - Desarrollador Android especializado en Java y Kotlin">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/projects.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/images/logo/logo.png" type="image/x-png">
+    <title>Proyectos | Alberto Sánchez - Desarrollador Android</title>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="./assets/images/logo/logo.png" alt="Logo" class="nav-logo-img">
+          Alberto Sánchez
+        </a>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html#home" class="nav-link" onclick="navigateToSection('home')">Inicio</a>
+          <a href="index.html#about" class="nav-link" onclick="navigateToSection('about')">Sobre mí</a>
+          <a href="projects.html" class="nav-link active">Proyectos</a>
+          <a href="index.html#experience" class="nav-link" onclick="navigateToSection('experience')">Experiencia</a>
+          <a href="index.html#education" class="nav-link" onclick="navigateToSection('education')">Formación</a>
+          <a href="index.html#contact" class="nav-link" onclick="navigateToSection('contact')">Contacto</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="projects-hero">
+      <div class="container">
+        <div class="projects-hero-content">
+          <h1 class="projects-hero-title">Mis Proyectos</h1>
+          <p class="projects-hero-subtitle">
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Filter Section -->
+    <section class="projects-section">
+      <div class="container">
+        <!-- Filter Buttons -->
+        <div class="projects-filters">
+          <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-th"></i> Todos
+          </button>
+          <button class="filter-btn" data-filter="web">
+            <i class="fas fa-globe"></i> Web
+          </button>
+          <button class="filter-btn" data-filter="android">
+            <i class="fab fa-android"></i> Android
+          </button>
+          <button class="filter-btn" data-filter="java">
+            <i class="fab fa-java"></i> Java
+          </button>
+          <button class="filter-btn" data-filter="game">
+            <i class="fas fa-gamepad"></i> Juegos
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="all-projects-grid" id="allProjectsContainer">
+          <!-- Projects will be loaded dynamically -->
+        </div>
+
+        <!-- No results message -->
+        <div class="no-results" id="noResults" style="display: none;">
+          <i class="fas fa-search"></i>
+          <h3>No se encontraron proyectos</h3>
+          <p>No hay proyectos que coincidan con el filtro seleccionado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <a href="index.html" class="back-to-home">
+      <i class="fas fa-home"></i>
+      <span>Volver al inicio</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Alberto Sánchez. Desarrollador Android.</p>
+      </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/projects.js"></script>
+
+    <script>
+      // Additional navigation functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        // Handle mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle && navMenu) {
+          navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
