@@ -24,14 +24,14 @@ const allProjectsData = [
         }
     },
     {
-        "name": "Fumadero Tycoon (android)",
-        "desc": "Port del juego clicker web a Android usando Kotlin.",
-        "image": "estancoclickerandroid",
+        "name": "Bloonsdle",
+        "desc": "Juego web tipo Wordle inspirado en Bloons TD. Adivina la torre de Bloons Tower Defense en 6 intentos.",
+        "image": "bloonsdle",
         "category": "game",
         "featured": true,
         "links": {
-            "view": "https://appberto.itch.io/fumadero-tycoon",
-            "code": "https://github.com/AlbertoSB00/estancoClickerAndroid"
+            "view": "https://bloonsdle.com/",
+            "code": "https://github.com/AlbertoSB00/bloonsdle"
         }
     },
     // Proyectos adicionales
@@ -88,6 +88,17 @@ const allProjectsData = [
         "links": {
             "view": "https://github.com/AlbertoSB00/gestionDatos",
             "code": "https://github.com/AlbertoSB00/gestionDatos"
+        }
+    },
+    {
+        "name": "Fumadero Tycoon (android)",
+        "desc": "Port del juego clicker web a Android usando Kotlin.",
+        "image": "estancoclickerandroid",
+        "category": "android",
+        "featured": false,
+        "links": {
+            "view": "https://appberto.itch.io/fumadero-tycoon",
+            "code": "https://github.com/AlbertoSB00/estancoClickerAndroid"
         }
     }
 ];
