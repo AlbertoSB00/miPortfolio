@@ -13,14 +13,14 @@ const allProjectsData = [
         }
     },
     {
-        "name": "PopFlix",
-        "desc": "Aplicación móvil en Java para gestionar cines con interfaz moderna.",
-        "image": "popflix",
-        "category": "android",
+        "name": "Tarkovdle",
+        "desc": "Juego web tipo Wordle inspirado en Escape from Tarkov. Adivina el arma del día por sus propiedades o sonido.",
+        "image": "tarkovdle",
+        "category": "game",
         "featured": true,
         "links": {
-            "view": "https://drive.google.com/file/d/1gPdJ1lukq9icOYbOyfwLLW6GcmPJaLLJ/view?usp=sharing",
-            "code": "https://github.com/AlbertoSB00/gestionCine"
+            "view": "https://tarkovdle.com/",
+            "code": "https://github.com/AlbertoSB00/tarkovdle"
         }
     },
     {
@@ -36,11 +36,22 @@ const allProjectsData = [
     },
     // Proyectos adicionales
     {
+        "name": "PopFlix",
+        "desc": "Aplicación móvil en Java para gestionar cines con interfaz moderna.",
+        "image": "popflix",
+        "category": "android",
+        "featured": false,
+        "links": {
+            "view": "https://drive.google.com/file/d/1gPdJ1lukq9icOYbOyfwLLW6GcmPJaLLJ/view?usp=sharing",
+            "code": "https://github.com/AlbertoSB00/gestionCine"
+        }
+    },
+    {
         "name": "PopFlix (escritorio)",
         "desc": "Aplicación de escritorio en Java para gestionar cines con interfaz moderna.",
         "image": "popflix",
         "category": "java",
-        "featured": true,
+        "featured": false,
         "links": {
             "view": "https://drive.google.com/file/d/1gPdJ1lukq9icOYbOyfwLLW6GcmPJaLLJ/view?usp=sharing",
             "code": "https://github.com/AlbertoSB00/gestionCine"
