@@ -19,7 +19,7 @@ const allProjectsData = [
         "category": "game",
         "featured": true,
         "links": {
-            "view": "https://tarkovdle.com/",
+            "view": "https://tarkovdle.appberto.es/",
             "code": "https://github.com/AlbertoSB00/tarkovdle"
         }
     },
@@ -30,7 +30,7 @@ const allProjectsData = [
         "category": "game",
         "featured": true,
         "links": {
-            "view": "https://bloonsdle.com/",
+            "view": "https://bloonsdle.appberto.es/",
             "code": "https://github.com/AlbertoSB00/bloonsdle"
         }
     },
